@@ -1,0 +1,102 @@
+/* ==========================================================================
+   HOJA DE ESTILOS PERSONALIZADA - STYLE LUNA AZUL
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* 1. VARIABLES NATIVAS DE TEMA */
+:root {
+    --font-main: 'Inter', system-ui, sans-serif;
+    --color-bg-primary: #0f172a;
+    --color-bg-surface: #1e293b;
+    --color-border: #334155;
+    --color-brand-accent: #38bdf8;
+    --color-brand-hover: #0284c7;
+    --color-success: #34d399;
+    --color-warning: #fbbf24;
+    --color-error: #f87171;
+    --transition-normal: 250ms ease-in-out;
+}
+
+/* 2. REGLAS BASE */
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg-primary);
+    color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* 3. VISIBILIDAD DE MÓDULOS OPORTUNA */
+.view-module {
+    display: none;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.view-module.active {
+    display: block;
+    opacity: 1;
+}
+
+.view-module.active.flex {
+    display: flex;
+}
+
+/* 4. ENTRADAS Y FORMULARIOS */
+.custom-input {
+    background-color: var(--color-bg-primary) !important;
+    border: 1px solid var(--color-border);
+    color: #f8fafc;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.custom-input:focus {
+    border-color: var(--color-brand-accent) !important;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+/* 5. BADGES DE ESTADO */
+.badge-status {
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge-pendiente {
+    background-color: rgba(251, 191, 36, 0.15);
+    color: var(--color-warning);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.badge-completada {
+    background-color: rgba(52, 211, 153, 0.15);
+    color: var(--color-success);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.badge-cancelada {
+    background-color: rgba(248, 113, 113, 0.15);
+    color: var(--color-error);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+/* 6. SCROLLBAR */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-accent);
+}
