@@ -1,0 +1,193 @@
+{
+  "usuarios": [
+    {
+      "_id": "6ab9bcf9e1098c9b07954ef7",
+      "nombres": "Steven Alexander Aviles",
+      "email": "steven@email.com",
+      "rol": "admin",
+      "estado": true
+    },
+    {
+      "_id": "6ab9bcf9e1098c9b07954ef8",
+      "nombres": "Julio Cesar Porras",
+      "email": "julio@email.com",
+      "rol": "barbero",
+      "estado": true
+    },
+    {
+      "_id": "6ab9bcf9e1098c9b07954ef9",
+      "nombres": "Mildrey Vanetza Celis",
+      "email": "mildrey@email.com",
+      "rol": "cliente",
+      "estado": true
+    }
+  ],
+  "inventory": [
+    {
+      "_id": "6ab9b6250d454b1c5a845ed1",
+      "id": 1,
+      "name": "Cera Peinado Mate",
+      "stock": 12,
+      "min": 5
+    },
+    {
+      "_id": "6ab9b6250d454b1c5a845ed2",
+      "id": 2,
+      "name": "Aceite para Barba",
+      "stock": 2,
+      "min": 4
+    },
+    {
+      "_id": "6ab9b6250d454b1c5a845ed3",
+      "id": 3,
+      "name": "Shampoo Anticaída",
+      "stock": 8,
+      "min": 3
+    }
+  ],
+  "services": [
+    {
+      "_id": "6ab9b6240d454b1c5a845ec9",
+      "name": "Corte Tradicional",
+      "price": 20000
+    },
+    {
+      "_id": "6ab9b6240d454b1c5a845eca",
+      "name": "Arreglo de Barba",
+      "price": 12000
+    },
+    {
+      "_id": "6ab9b6240d454b1c5a845ecb",
+      "name": "Combo Luna Azul",
+      "price": 28000
+    }
+  ],
+  "inventario": [
+    {
+      "_id": "6ab9bcf9e1098c9b07954efc",
+      "producto": "Cuchillas de afeitar",
+      "cantidad": 50,
+      "stock_minimo": 10,
+      "categoria": "Insumos"
+    },
+    {
+      "_id": "6ab9bcf9e1098c9b07954efd",
+      "producto": "Cera moldeadora",
+      "cantidad": 15,
+      "stock_minimo": 5,
+      "categoria": "Productos"
+    }
+  ],
+  "citas": [
+    {
+      "_id": "6ab9bcf9e1098c9b07954efa",
+      "cliente": "Mildrey Vanetza Celis",
+      "barbero": "Julio Cesar Porras",
+      "servicio": "Corte de cabello y barba",
+      "precio": 35000,
+      "fecha": "2026-09-28T10:00:00.000Z",
+      "estado": "confirmada"
+    },
+    {
+      "_id": "6ab9bcf9e1098c9b07954efb",
+      "cliente": "Steven Alexander Aviles",
+      "barbero": "Julio Cesar Porras",
+      "servicio": "Perfilado de barba",
+      "precio": 15000,
+      "fecha": "2026-09-28T11:30:00.000Z",
+      "estado": "pendiente"
+    }
+  ],
+  "sales": [
+    {
+      "_id": "6ab9b6250d454b1c5a845ed4",
+      "id": 1,
+      "concept": "Corte Caballero",
+      "amount": 20000,
+      "payment": "Efectivo"
+    },
+    {
+      "_id": "6ab9b6250d454b1c5a845ed5",
+      "id": 2,
+      "concept": "Combo Luna Azul",
+      "amount": 28000,
+      "payment": "Transferencia"
+    }
+  ],
+  "barbers": [
+    {
+      "_id": "6ab9b6240d454b1c5a845ecc",
+      "name": "Alexander Oviedo"
+    },
+    {
+      "_id": "6ab9b6240d454b1c5a845ecd",
+      "name": "Carlos Barber"
+    }
+  ],
+  "appointments": [
+    {
+      "_id": "6ab9b6250d454b1c5a845ece",
+      "id": 101,
+      "client": "Juan Pérez",
+      "service": "Corte Tradicional",
+      "barber": "Alexander Oviedo",
+      "datetime": "2026-09-02T10:00",
+      "status": "PENDIENTE"
+    },
+    {
+      "_id": "6ab9b6250d454b1c5a845ecf",
+      "id": 102,
+      "client": "Mildrey Celis",
+      "service": "Combo Luna Azul",
+      "barber": "Alexander Oviedo",
+      "datetime": "2026-09-02T11:30",
+      "status": "COMPLETADA"
+    },
+    {
+      "_id": "6ab9b6250d454b1c5a845ed0",
+      "id": 103,
+      "client": "Julio Porras",
+      "service": "Arreglo de Barba",
+      "barber": "Carlos Barber",
+      "datetime": "2026-09-02T14:00",
+      "status": "PENDIENTE"
+    }
+  ],
+  "users": [
+    {
+      "_id": "6ab9b6240d454b1c5a845ec4",
+      "email": "admin@lunaazul.com",
+      "password": "1234",
+      "role": "ADMIN",
+      "name": "Steven Avilés"
+    },
+    {
+      "_id": "6ab9b6240d454b1c5a845ec5",
+      "email": "mildrey@lunaazul.com",
+      "password": "1234",
+      "role": "ADMIN",
+      "name": "Mildrey Celis"
+    },
+    {
+      "_id": "6ab9b6240d454b1c5a845ec6",
+      "email": "cesar@lunaazul.com",
+      "password": "1234",
+      "role": "ADMIN",
+      "name": "Julio Porras"
+    },
+    {
+      "_id": "6ab9b6240d454b1c5a845ec7",
+      "email": "barbero@lunaazul.com",
+      "password": "1234",
+      "role": "BARBER",
+      "name": "Alexander Oviedo"
+    },
+    {
+      "_id": "6ab9b6240d454b1c5a845ec8",
+      "email": "cliente@lunaazul.com",
+      "password": "1234",
+      "role": "CLIENT",
+      "name": "Juan Pérez"
+    }
+  ]
+}

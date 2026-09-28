@@ -1,0 +1,2 @@
+{"_id":{"$oid":"6ab9bcf9e1098c9b07954efa"},"cliente":"Mildrey Vanetza Celis","barbero":"Julio Cesar Porras","servicio":"Corte de cabello y barba","precio":35000,"fecha":{"$date":"2026-09-28T10:00:00Z"},"estado":"confirmada"}
+{"_id":{"$oid":"6ab9bcf9e1098c9b07954efb"},"cliente":"Steven Alexander Aviles","barbero":"Julio Cesar Porras","servicio":"Perfilado de barba","precio":15000,"fecha":{"$date":"2026-09-28T11:30:00Z"},"estado":"pendiente"}
