@@ -5,6 +5,7 @@
 
 const AppState = {
     currentUser: null,
+    isStaticMode: false,
     users: [],
     services: [],
     barbers: [],
@@ -16,6 +17,24 @@ const AppState = {
 async function loadAppData() {
     try {
         const response = await fetch('/api/data');
+
+        if (response.status === 404 || (response.ok && !response.headers.get('content-type')?.includes('application/json'))) {
+            const fallbackResponse = await fetch('./base_de_datos_completa.json');
+            if (!fallbackResponse.ok) {
+                throw new Error('No se pudo cargar la información local del sistema.');
+            }
+
+            const data = await fallbackResponse.json();
+            AppState.users = data.users || [];
+            AppState.services = data.services || [];
+            AppState.barbers = data.barbers || [];
+            AppState.appointments = data.appointments || [];
+            AppState.inventory = data.inventory || [];
+            AppState.sales = data.sales || [];
+            AppState.isStaticMode = true;
+            return;
+        }
+
         if (!response.ok) {
             throw new Error('No se pudo cargar la información del sistema');
         }
@@ -29,7 +48,7 @@ async function loadAppData() {
         AppState.sales = data.sales || [];
     } catch (error) {
         console.error(error);
-        alert('No se pudo conectar con la base de datos del sistema.');
+        alert('No se pudo cargar la información del sistema.');
     }
 }
 
@@ -196,19 +215,36 @@ document.addEventListener('DOMContentLoaded', async () => {
             authMsg.classList.remove('hidden', 'bg-emerald-500/10', 'border-emerald-500/30', 'text-emerald-400', 'bg-rose-500/10', 'border-rose-500/30', 'text-rose-400');
 
             try {
-                const response = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: emailInput, password: passInput })
-                });
+                if (AppState.isStaticMode) {
+                    const user = AppState.users.find(
+                        candidate => candidate.email === emailInput && candidate.password === passInput
+                    );
 
-                const data = await response.json();
+                    if (!user) {
+                        throw new Error('Credenciales inválidas. Revisa el correo o la contraseña.');
+                    }
 
-                if (!response.ok) {
-                    throw new Error(data.message || 'Credenciales inválidas');
+                    AppState.currentUser = {
+                        id: user._id,
+                        email: user.email,
+                        role: user.role,
+                        name: user.name
+                    };
+                } else {
+                    const response = await fetch('/api/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: emailInput, password: passInput })
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.message || 'Credenciales inválidas');
+                    }
+
+                    AppState.currentUser = data.user;
                 }
-
-                AppState.currentUser = data.user;
 
                 document.getElementById('navUserSection').classList.remove('hidden');
                 document.getElementById('userInfoName').textContent = AppState.currentUser.name;
